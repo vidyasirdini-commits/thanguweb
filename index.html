@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smrithi | MSc Computer Science</title>
+  <meta name="description" content="Portfolio of Smrithi, MSc Computer Science student, software engineering intern and State-Level Developer Fellow." />
+  <meta name="theme-color" content="#0b1020" />
+
+  <!-- Apply saved theme before paint (prevents flash) -->
+  <script>
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light") document.documentElement.classList.remove("dark");
+    } catch (e) {}
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+            mono: ["Fira Code", "ui-monospace", "monospace"],
+          },
+          colors: {
+            ink: { 950: "#0b1020", 900: "#0f1629", 800: "#162038" },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="bg-white text-slate-700 antialiased dark:bg-ink-950 dark:text-slate-300 font-sans">
+  <div id="progress" class="fixed left-0 top-0 z-[60] h-0.5 w-0 bg-indigo-500"></div>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded focus:bg-indigo-600 focus:px-3 focus:py-2 focus:text-white">Skip to content</a>
+
+  <!-- NAV -->
+  <header id="nav" class="fixed inset-x-0 top-0 z-50 transition-all">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4" aria-label="Primary">
+      <a href="#home" class="font-mono text-sm font-medium text-slate-900 dark:text-white">smrithi<span class="text-indigo-500">.dev</span></a>
+
+      <ul class="hidden items-center gap-1 md:flex">
+        <li><a class="nav-link" href="#highlights">Highlights</a></li>
+        <li><a class="nav-link" href="#experience">Experience</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#education">Education</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+          <i data-lucide="sun" class="hidden h-4 w-4 dark:block"></i>
+          <i data-lucide="moon" class="h-4 w-4 dark:hidden"></i>
+        </button>
+        <button id="menu-btn" class="icon-btn md:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i data-lucide="menu" class="h-4 w-4"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white/95 px-5 py-3 backdrop-blur dark:border-white/10 dark:bg-ink-950/95 md:hidden">
+      <ul class="flex flex-col gap-1">
+        <li><a class="nav-link block" href="#highlights">Highlights</a></li>
+        <li><a class="nav-link block" href="#experience">Experience</a></li>
+        <li><a class="nav-link block" href="#projects">Projects</a></li>
+        <li><a class="nav-link block" href="#skills">Skills</a></li>
+        <li><a class="nav-link block" href="#education">Education</a></li>
+        <li><a class="nav-link block" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="home" class="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-6xl px-5">
+        <p class="reveal mb-4 inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 font-mono text-xs text-indigo-600 dark:text-indigo-300">
+          <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span></span>
+          <span id="hero-status"></span>
+        </p>
+
+        <h1 class="reveal text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-7xl">
+          Hi, I'm <span class="text-gradient" id="hero-name">Smrithi</span><span class="caret" aria-hidden="true"></span>
+        </h1>
+
+        <p id="hero-headline" class="reveal mt-5 max-w-3xl text-lg font-medium text-slate-800 dark:text-slate-200 sm:text-xl"></p>
+        <p id="hero-bio" class="reveal mt-4 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-400"></p>
+
+        <div class="reveal mt-8 flex flex-wrap items-center gap-3">
+          <a href="#projects" class="btn-primary">View Projects <i data-lucide="arrow-down-right" class="h-4 w-4"></i></a>
+          <a id="resume-link" href="assets/Smrithi_Resume.pdf" target="_blank" rel="noopener" class="btn-secondary">
+            <i data-lucide="file-text" class="h-4 w-4"></i> Read Resume
+          </a>
+        </div>
+
+        <div id="hero-socials" class="reveal mt-8 flex items-center gap-2"></div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section id="highlights" class="section">
+      <div class="mx-auto max-w-6xl px-5">
+        <div id="highlight-banner" class="reveal spotlight relative overflow-hidden rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-transparent to-sky-500/10 p-6 sm:p-8"></div>
+        <div id="stat-grid" class="mt-5 grid gap-4 sm:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="mx-auto max-w-6xl px-5">
+        <div class="reveal section-head"><span>01</span><h2>Experience &amp; Internships</h2></div>
+        <ol id="experience-list" class="relative mt-10 space-y-10 border-l border-slate-200 pl-6 dark:border-white/10 sm:pl-8"></ol>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="mx-auto max-w-6xl px-5">
+        <div class="reveal section-head"><span>02</span><h2>Projects</h2></div>
+        <div id="project-grid" class="mt-10 grid gap-5 md:grid-cols-2"></div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="mx-auto max-w-6xl px-5">
+        <div class="reveal section-head"><span>03</span><h2>Technical Skills</h2></div>
+        <div id="skills-grid" class="mt-10 grid gap-5 lg:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <div class="mx-auto max-w-6xl px-5">
+        <div class="reveal section-head"><span>04</span><h2>Education &amp; Certifications</h2></div>
+        <div class="mt-10 grid gap-5 lg:grid-cols-2">
+          <div id="education-card" class="reveal spotlight card"></div>
+          <div id="cert-card" class="reveal spotlight card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="mx-auto max-w-6xl px-5">
+        <div class="reveal section-head"><span>05</span><h2>Get in Touch</h2></div>
+        <div class="mt-10 grid gap-5 lg:grid-cols-5">
+          <div class="reveal spotlight card lg:col-span-2">
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Let's build something.</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">Open to internships, fellowships and open-source collaboration. I usually reply within a couple of days.</p>
+            <a id="email-card" href="#" class="mt-5 inline-flex items-center gap-2 font-mono text-sm text-indigo-600 hover:underline dark:text-indigo-300">
+              <i data-lucide="mail" class="h-4 w-4"></i><span id="email-text"></span>
+            </a>
+            <div id="contact-socials" class="mt-6 flex gap-2"></div>
+          </div>
+
+          <form id="contact-form" class="reveal card lg:col-span-3" novalidate>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <label class="field"><span>Name</span><input name="name" required autocomplete="name" placeholder="Your name" /></label>
+              <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email" placeholder="you@example.com" /></label>
+            </div>
+            <label class="field mt-4"><span>Message</span><textarea name="message" rows="4" required placeholder="Tell me a bit about the opportunity..."></textarea></label>
+            <div class="mt-4 flex items-center justify-between gap-3">
+              <p id="form-status" class="text-sm text-slate-500" role="status" aria-live="polite"></p>
+              <button type="submit" class="btn-primary">Send message <i data-lucide="send" class="h-4 w-4"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 py-8 dark:border-white/10">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 text-sm text-slate-500 sm:flex-row">
+      <p>&copy; <span id="year"></span> Smrithi. All rights reserved.</p>
+      <p class="font-mono text-xs">Built with code &amp; coffee <span aria-hidden="true">&#9749;</span></p>
+    </div>
+  </footer>
+
+  <button id="to-top" class="fixed bottom-5 right-5 z-40 hidden icon-btn bg-white shadow-lg dark:bg-ink-800" aria-label="Back to top">
+    <i data-lucide="arrow-up" class="h-4 w-4"></i>
+  </button>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
